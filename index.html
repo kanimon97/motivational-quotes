@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivational Quotes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>✨ Motivational Quotes ✨</h1>
+    
+    <div class="theme-selector">
+      <label for="category">Choose a theme:</label>
+      <select id="category">
+        <option value="general">General</option>
+        <option value="success">Success</option>
+        <option value="courage">Courage</option>
+        <option value="happiness">Happiness</option>
+        <option value="wisdom">Wisdom</option>
+        <option value="perseverance">Perseverance</option>
+        <option value="hope">Hope</option>
+      </select>
+    </div>
+
+    <div class="quote-container">
+      <p id="quote">Click the button to see a motivational quote!</p>
+      <div id="spinner" class="spinner hidden"></div>
+      <div id="error-message" class="error-message hidden"></div>
+    </div>
+
+    <div class="actions">
+      <button id="new-quote">Generate Quote</button>
+      <button id="copy-btn" class="copy-btn hidden" title="Copy to clipboard">
+        📋 Copy
+      </button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

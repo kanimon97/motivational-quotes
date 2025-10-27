@@ -1,0 +1,28 @@
+{
+  "name": "new-folder",
+  "version": "1.0.0",
+  "description": "This project generates motivational quotes based on any theme you enter (like courage, success, or happiness).",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanimon97/motivational-quotes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kanimon97/motivational-quotes/issues"
+  },
+  "homepage": "https://github.com/kanimon97/motivational-quotes#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "@google/generative-ai": "^0.21.0",
+    "helmet": "^8.1.0"
+  }
+}
