@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="main-container">
     <h1>✨ Motivational Quotes ✨</h1>
     
     <div class="theme-selector">
@@ -24,6 +24,10 @@
     </div>
 
     <div class="quote-container">
+      <div id="quote-image-wrapper" class="hidden">
+        <img id="quote-image" src="" alt="Quote background">
+        <div id="quote-overlay"></div>
+      </div>
       <p id="quote">Click the button to see a motivational quote!</p>
       <div id="spinner" class="spinner hidden"></div>
       <div id="error-message" class="error-message hidden"></div>
@@ -33,6 +37,12 @@
       <button id="new-quote">Generate Quote</button>
       <button id="copy-btn" class="copy-btn hidden" title="Copy to clipboard">
         📋 Copy
+      </button>
+      <button id="speak-btn" class="speak-btn hidden" title="Read aloud">
+        🔊 Speak
+      </button>
+      <button id="download-btn" class="download-btn hidden" title="Download as image">
+        💾 Download
       </button>
     </div>
   </div>

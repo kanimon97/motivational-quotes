@@ -5,7 +5,9 @@
 }
 
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   padding: 20px;
@@ -13,6 +15,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -34,6 +42,35 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Dynamic category theming */
+.container.category-general { 
+  border-left: 8px solid #667eea; 
+}
+
+.container.category-success { 
+  border-left: 8px solid #4CAF50; 
+}
+
+.container.category-courage { 
+  border-left: 8px solid #f44336; 
+}
+
+.container.category-happiness { 
+  border-left: 8px solid #FFC107; 
+}
+
+.container.category-wisdom { 
+  border-left: 8px solid #2196F3; 
+}
+
+.container.category-perseverance { 
+  border-left: 8px solid #9C27B0; 
+}
+
+.container.category-hope { 
+  border-left: 8px solid #FF9800; 
 }
 
 h1 {
@@ -82,6 +119,36 @@ h1 {
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+#quote-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+#quote-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  transition: opacity 0.5s ease;
+}
+
+#quote-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+  z-index: 1;
 }
 
 #quote {
@@ -91,6 +158,9 @@ h1 {
   font-style: italic;
   padding: 20px;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
 }
 
 .quote-container.fade-in {
@@ -180,6 +250,24 @@ button:disabled {
 
 .copy-btn:hover:not(:disabled) {
   box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.speak-btn {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
+.speak-btn:hover:not(:disabled) {
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.download-btn:hover:not(:disabled) {
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
 }
 
 /* Responsive Design */

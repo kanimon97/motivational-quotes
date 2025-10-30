@@ -22,7 +22,10 @@ This application provides users with instant access to inspirational and motivat
 ## ✨ Features
 
 - **AI-Powered Quotes**: Generate unique motivational quotes using Google Gemini AI
-- **Category Selection**: Choose from 7 different themes:
+- **Background Images**: Automatic category-specific background images for each quote
+- **Image Card Generation**: Download beautiful quote cards as high-quality PNG images
+- **Text-to-Speech**: Listen to quotes with built-in speech synthesis
+- **Category Selection**: Choose from 7 different themes with dynamic theming:
   - General
   - Success
   - Courage
@@ -31,7 +34,8 @@ This application provides users with instant access to inspirational and motivat
   - Perseverance
   - Hope
 - **Copy to Clipboard**: One-click copy functionality for easy sharing
-- **Beautiful UI**: Modern gradient design with smooth animations
+- **Beautiful UI**: Animated gradient background with modern design
+- **Dynamic Theming**: UI changes color based on selected category
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **Error Handling**: Comprehensive error handling with user-friendly messages
 - **Loading States**: Visual feedback during quote generation
@@ -46,6 +50,7 @@ This application provides users with instant access to inspirational and motivat
 
 ### API Requirements
 - Google Gemini API key (get it from [Google AI Studio](https://makersuite.google.com/app/apikey))
+- Optional: Unsplash API key for custom images (works without it using fallback)
 
 ## 🚀 Installation
 
@@ -64,6 +69,7 @@ This application provides users with instant access to inspirational and motivat
    Create a `.env` file in the root directory with your Gemini API key:
    ```env
    GEMINI_API_KEY=your_gemini_api_key_here
+   UNSPLASH_ACCESS_KEY=your_unsplash_key_here (optional)
    ```
 
 4. **Start the server**
@@ -81,9 +87,13 @@ This application provides users with instant access to inspirational and motivat
 1. Open the application in your web browser
 2. Select a category from the dropdown (optional - defaults to "General")
 3. Click "Generate Quote" button
-4. Wait for the AI to generate your quote
-5. Copy the quote using the "📋 Copy" button if desired
+4. Wait for the AI to generate your quote with a background image
+5. Use the action buttons:
+   - **📋 Copy**: Copy quote text to clipboard
+   - **🔊 Speak**: Listen to the quote (text-to-speech)
+   - **💾 Download**: Download quote as a beautiful image card
 6. Click "Generate Quote" again for a new quote
+7. Notice the UI theme changes based on your selected category
 
 ### API Usage
 
@@ -156,6 +166,12 @@ For detailed API documentation, see [API.md](API.md)
 - **dotenv**: Environment variable management
 - **Helmet.js**: Security headers
 - **CORS**: Cross-origin resource sharing
+- **node-fetch**: HTTP client for external APIs
+
+### Frontend Features
+- **Web Speech API**: Text-to-speech functionality
+- **HTML5 Canvas**: Image generation for quote cards
+- **Modern CSS Animations**: Smooth transitions and gradient effects
 
 ### Development
 - **ES Modules**: Modern JavaScript module system

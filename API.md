@@ -8,9 +8,13 @@ http://localhost:3000
 
 ## Endpoints
 
-### 1. Generate Quote
+### 1. Generate Quote (Text Only)
 
-Generate a motivational quote based on category.
+Generate a motivational quote based on category without background images.
+
+### 2. Generate Quote with Image ⭐ NEW
+
+Generate a motivational quote with a category-specific background image.
 
 **Endpoint:** `POST /generate`
 
@@ -51,7 +55,116 @@ Content-Type: application/json
 }
 ```
 
+---
+
+### 2. Generate Quote with Image ⭐ NEW
+
+Generate a motivational quote with a category-specific background image.
+
+**Endpoint:** `POST /generate-with-image`
+
+**Request Headers:**
+```
+Content-Type: application/json
+```
+
+**Request Body:**
+```json
+{
+  "category": "success"
+}
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| category | string | No | "general" | Quote category |
+
+**Available Categories:**
+- `general` - General motivational quotes
+- `success` - Success and achievement focused
+- `courage` - Courage and bravery
+- `happiness` - Happiness and joy
+- `wisdom` - Wisdom and learning
+- `perseverance` - Persistence and determination
+- `hope` - Hope and optimism
+
+**Success Response:**
+
+**Status Code:** `200 OK`
+
+```json
+{
+  "quote": "The only way to do great work is to love what you do. — Steve Jobs",
+  "imageUrl": "https://source.unsplash.com/featured/1600x900/?success achievement",
+  "category": "success"
+}
+```
+
 **Error Responses:**
+
+**Status Code:** `401 Unauthorized`
+
+```json
+{
+  "error": "Invalid API key. Please check your GEMINI_API_KEY.",
+  "details": "[detailed error message in development mode]"
+}
+```
+
+**Status Code:** `429 Too Many Requests`
+
+```json
+{
+  "error": "API quota exceeded. Please try again later.",
+  "details": "[detailed error message in development mode]"
+}
+```
+
+**Status Code:** `500 Internal Server Error`
+
+```json
+{
+  "error": "Generated quote is empty",
+  "details": "The API returned an empty response"
+}
+```
+
+**cURL Example:**
+```bash
+curl -X POST http://localhost:3000/generate-with-image \
+  -H "Content-Type: application/json" \
+  -d '{"category": "success"}'
+```
+
+**JavaScript Example:**
+```javascript
+fetch('http://localhost:3000/generate-with-image', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    category: 'success'
+  })
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log('Quote:', data.quote);
+    console.log('Image URL:', data.imageUrl);
+    console.log('Category:', data.category);
+  })
+  .catch(error => console.error('Error:', error));
+```
+
+---
+
+### 3. Generate Quote Text-Only Endpoint (Legacy)
+
+This is the original endpoint. For new implementations, use `/generate-with-image`.
+
+**Error Responses for Legacy Endpoint:**
 
 **Status Code:** `401 Unauthorized`
 
@@ -105,7 +218,7 @@ fetch('http://localhost:3000/generate', {
 
 ---
 
-### 2. Health Check
+### 3. Health Check
 
 Check server status and availability.
 
@@ -186,6 +299,20 @@ Cross-Origin Resource Sharing (CORS) is enabled for all origins. This allows the
 ## API Authentication
 
 Authentication is handled via the Google Gemini API key stored in environment variables (`GEMINI_API_KEY`). The server validates the API key on startup and returns appropriate errors if the key is invalid or missing.
+
+## Background Images
+
+The `/generate-with-image` endpoint automatically fetches category-appropriate background images from Unsplash. Each category has associated search keywords:
+
+- `general`: "inspiration"
+- `success`: "success achievement"
+- `courage`: "bravery courage strength"
+- `happiness`: "joy happiness sunshine"
+- `wisdom`: "knowledge books wisdom"
+- `perseverance`: "mountain climbing determination"
+- `hope`: "sunrise dawn hope"
+
+Optionally, you can provide your own Unsplash Access Key via the `UNSPLASH_ACCESS_KEY` environment variable for better performance and customization.
 
 ## Development Mode
 

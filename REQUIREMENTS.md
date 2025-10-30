@@ -29,22 +29,52 @@
 - **Priority:** Medium  
 - **Status:** Implemented
 
-#### FR4: Visual Feedback
+#### FR4: Background Images ⭐ NEW
 - **ID:** FR4  
+- **Description:** Each quote shall have a category-appropriate background image  
+- **Priority:** High  
+- **Status:** Implemented
+
+#### FR5: Image Card Download ⭐ NEW
+- **ID:** FR5  
+- **Description:** Users shall be able to download quotes as beautiful image cards in PNG format  
+- **Priority:** Medium  
+- **Status:** Implemented
+
+#### FR6: Text-to-Speech ⭐ NEW
+- **ID:** FR6  
+- **Description:** Users shall be able to listen to quotes using browser's text-to-speech API  
+- **Priority:** Medium  
+- **Status:** Implemented
+
+#### FR7: Visual Feedback
+- **ID:** FR7  
 - **Description:** The system shall provide loading indicators (spinner) during quote generation  
 - **Priority:** Medium  
 - **Status:** Implemented
 
-#### FR5: Error Handling
-- **ID:** FR5  
+#### FR8: Error Handling
+- **ID:** FR8  
 - **Description:** The system shall display user-friendly error messages for failed operations  
 - **Priority:** High  
 - **Status:** Implemented
 
-#### FR6: Responsive Design
-- **ID:** FR6  
+#### FR9: Responsive Design
+- **ID:** FR9  
 - **Description:** The application shall be responsive and work on desktop, tablet, and mobile devices  
 - **Priority:** High  
+- **Status:** Implemented
+
+#### FR10: Dynamic Category Theming ⭐ NEW
+- **ID:** FR10  
+- **Description:** The UI theme shall change dynamically based on the selected category  
+- **Priority:** Low  
+- **Status:** Implemented
+
+#### FR11: Animated Background ⭐ NEW
+- **ID:** FR11  
+- **Description:** The background shall have an animated gradient effect  
+- **Priority:** Low  
 - **Status:** Implemented
 
 ### 3. Non-Functional Requirements
@@ -189,11 +219,27 @@
 - Google Gemini API key
 - npm packages: express, cors, dotenv, helmet, @google/generative-ai
 
-### 10. Future Enhancements
+### 10. Implementation Status
+
+#### Completed Features
+- ✅ AI-powered quote generation
+- ✅ Category selection
+- ✅ Copy to clipboard
+- ✅ Background images with Unsplash integration
+- ✅ Image card download as PNG
+- ✅ Text-to-speech functionality
+- ✅ Dynamic category theming
+- ✅ Animated gradient background
+- ✅ Loading indicators
+- ✅ Error handling
+- ✅ Responsive design
+
+### 11. Future Enhancements
 
 - User authentication
 - Quote history storage
-- Social media sharing
-- Quote export as images
+- Social media sharing (integrated via download)
 - Dark mode toggle
 - Database integration for quote storage
+- Multiple language support
+- Quote favorites/bookmarks

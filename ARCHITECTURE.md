@@ -347,12 +347,21 @@ project/
 └── ARCHITECTURE.md   # This file
 ```
 
+## Current Architecture Enhancements (Implemented)
+
+1. **Background Images**: Unsplash integration for category-specific images
+2. **Image Generation**: Client-side canvas-based quote card creation
+3. **Text-to-Speech**: Web Speech API integration
+4. **Dynamic Theming**: Category-based UI color adaptation
+5. **Animated Backgrounds**: CSS animation for gradient effects
+
 ## Future Architecture Enhancements
 
-1. **Database Layer**: Add MongoDB/PostgreSQL
-2. **Authentication**: JWT-based auth
-3. **Caching Layer**: Redis for quote caching
+1. **Database Layer**: Add MongoDB/PostgreSQL for quote history
+2. **Authentication**: JWT-based auth for user-specific quotes
+3. **Caching Layer**: Redis for quote and image caching
 4. **Queue System**: Bull or Agenda for async processing
-5. **Microservices**: Separate quote generation service
+5. **Microservices**: Separate quote generation and image services
 6. **Monitoring**: Prometheus/Grafana integration
 7. **Logging**: Winston or Pino for structured logging
+8. **CDN Integration**: Optimize image delivery
